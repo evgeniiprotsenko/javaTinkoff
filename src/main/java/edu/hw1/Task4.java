@@ -2,7 +2,7 @@ package edu.hw1;
 
 public class Task4 {
 
-    public static String fixString(String str) {
+    public String fixString(String str) {
         if (str.length() > 1) {
             int length = str.length();
             char[] chars = str.toCharArray();

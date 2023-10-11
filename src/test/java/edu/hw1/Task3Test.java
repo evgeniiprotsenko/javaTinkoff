@@ -7,12 +7,14 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class Task3Test {
 
+    Task3 task3 = new Task3();
+
     @Test
     @DisplayName("[1, 2, 3, 4], [0, 6] -> true")
     public void test1() {
         int[] a1 = {1, 2, 3, 4};
         int[] a2 = {0, 6};
-        boolean result = Task3.isNestable(a1, a2);
+        boolean result = task3.isNestable(a1, a2);
         assertThat(result).isTrue();
     }
 
@@ -21,7 +23,7 @@ class Task3Test {
     public void test2() {
         int[] a1 = {3, 1};
         int[] a2 = {4, 0};
-        boolean result = Task3.isNestable(a1, a2);
+        boolean result = task3.isNestable(a1, a2);
         assertThat(result).isTrue();
     }
 
@@ -30,7 +32,7 @@ class Task3Test {
     public void test3() {
         int[] a1 = {9, 9, 8};
         int[] a2 = {8, 9};
-        boolean result = Task3.isNestable(a1, a2);
+        boolean result = task3.isNestable(a1, a2);
         assertThat(result).isFalse();
     }
 
@@ -39,7 +41,7 @@ class Task3Test {
     public void test4() {
         int[] a1 = {1, 2, 3, 4};
         int[] a2 = {2, 3};
-        boolean result = Task3.isNestable(a1, a2);
+        boolean result = task3.isNestable(a1, a2);
         assertThat(result).isFalse();
     }
 

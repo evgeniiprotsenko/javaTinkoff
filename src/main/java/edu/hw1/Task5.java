@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Task5 {
 
-    public static boolean isPalindromeDescendant(Integer number) {
+    public boolean isPalindromeDescendant(Integer number) {
 
         if (testForPalindrome(number)) {
             return true;
@@ -16,7 +16,7 @@ public class Task5 {
 
         ArrayList<Integer> childrenList = getChildren(number);
 
-        for(Integer child : childrenList){
+        for (Integer child : childrenList) {
             if (testForPalindrome(child)) {
                 return true;
             }

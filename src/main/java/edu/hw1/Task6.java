@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Task6 {
 
-    public static Integer countK(Integer n) {
+    public Integer countK(Integer n) {
 
         String currentNumber = n.toString();
         int count = 0;
