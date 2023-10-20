@@ -1,17 +1,19 @@
 package edu.hw2.task3;
 
-import static edu.hw2.task3.PopularCommandExecutor.MYLOGGER;
+import static edu.hw2.task3.PopularCommandExecutor.logInfo;
 
 public class StableConnection implements Connection {
+    private final Class<?> currentClass = getClass();
 
     @Override
     public void execute(String command) {
-        MYLOGGER.info(getClass() + " - connection completed.");
-        MYLOGGER.info("Command: " + command + " - executed(" + getClass() + ").");
+        logInfo(currentClass, "Connection completed.");
+        logInfo(currentClass, "Command: \"" + command + "\" executed.");
+        close();
     }
 
     @Override
-    public void close() throws Exception {
-        MYLOGGER.info("Connection closed(" + getClass() + ").");
+    public void close() {
+        logInfo(currentClass, "Connection closed.");
     }
 }
