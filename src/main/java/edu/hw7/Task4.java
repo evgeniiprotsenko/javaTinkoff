@@ -7,28 +7,28 @@ public class Task4 {
 
     private static final int NUM_SIMULATIONS = 100_000_000;
     private static final int NUM_THREADS = Runtime.getRuntime().availableProcessors();
-    private static final AtomicLong totalCount = new AtomicLong(0);
-    private static final AtomicLong circleCount = new AtomicLong(0);
+    private static final AtomicLong TOTAL_COUNT = new AtomicLong(0);
+    private static final AtomicLong CIRCLE_COUNT = new AtomicLong(0);
 
     public double runSingleThreadedSimulation() {
-        totalCount.set(0);
-        circleCount.set(0);
+        TOTAL_COUNT.set(0);
+        CIRCLE_COUNT.set(0);
         for (int i = 0; i < NUM_SIMULATIONS; i++) {
             double x = ThreadLocalRandom.current().nextDouble();
             double y = ThreadLocalRandom.current().nextDouble();
 
             if (isInsideCircle(x, y)) {
-                circleCount.incrementAndGet();
+                CIRCLE_COUNT.incrementAndGet();
             }
 
-            totalCount.incrementAndGet();
+            TOTAL_COUNT.incrementAndGet();
         }
-        return calculatePi(circleCount.get(), totalCount.get());
+        return calculatePi(CIRCLE_COUNT.get(), TOTAL_COUNT.get());
     }
 
     public double runMultiThreadedSimulation() throws InterruptedException {
-        totalCount.set(0);
-        circleCount.set(0);
+        TOTAL_COUNT.set(0);
+        CIRCLE_COUNT.set(0);
 
         Thread[] threads = new Thread[NUM_THREADS];
         for (int i = 0; i < NUM_THREADS; i++) {
@@ -39,7 +39,7 @@ public class Task4 {
         for (Thread thread : threads) {
             thread.join();
         }
-        return calculatePi(circleCount.get(), totalCount.get());
+        return calculatePi(CIRCLE_COUNT.get(), TOTAL_COUNT.get());
     }
 
     private void runSimulationPart() {
@@ -57,8 +57,8 @@ public class Task4 {
             localTotalCount++;
         }
 
-        totalCount.addAndGet(localTotalCount);
-        circleCount.addAndGet(localCircleCount);
+        TOTAL_COUNT.addAndGet(localTotalCount);
+        CIRCLE_COUNT.addAndGet(localCircleCount);
     }
 
     private static final double PI_RATE = 4.0;
