@@ -15,8 +15,7 @@ class Task2Test {
     void findByCount() {
         String path = Paths.get("").toAbsolutePath().toString();
         int expected = 1;
-        List<String> result = task2.findByCount(path, 150);
-        result.forEach(System.out::println);
+        List<String> result = task2.findByCount(path, 250);
         assertEquals(expected, result.size());
     }
 

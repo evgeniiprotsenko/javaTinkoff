@@ -20,8 +20,10 @@ class StatsCollectorTest {
         List<String> result = statsCollector.stats();
         assertEquals(2, result.size());
 
-        assertEquals("Metric: metric1, Sum: 6,000000, Average: 2,000000, Max: 3,000000, Min: 1,000000", result.get(0));
-        assertEquals("Metric: metric2, Sum: 4,500000, Average: 1,500000, Max: 2,500000, Min: 0,500000", result.get(1));
+
+        //test for linux
+        assertEquals("Metric: metric1, Sum: 6.000000, Average: 2.000000, Max: 3.000000, Min: 1.000000", result.get(0));
+        assertEquals("Metric: metric2, Sum: 4.500000, Average: 1.500000, Max: 2.500000, Min: 0.500000", result.get(1));
     }
 
 }
